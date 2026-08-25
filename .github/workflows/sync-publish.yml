@@ -1,0 +1,50 @@
+name: sync-publish
+
+# Publikacja pakietow na packages.mudlet.org metoda trusted publishing (OIDC).
+# Uruchamianie wylacznie reczne: Actions -> sync-publish -> Run workflow.
+# Jeden workflow na sync i publikacje: release tworzony przez GITHUB_TOKEN
+# nie odpala kolejnych workflow, wiec oba kroki musza byc w jednym runie.
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Nazwa mpackage do synca (puste = wszystkie z sources.json)"
+        required: false
+        default: ""
+
+concurrency:
+  group: sync-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Sync i publikacja
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ONLY_PACKAGE: ${{ inputs.package }}
+        run: python3 -m scripts.sync
+
+      - name: Commit state.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "state: aktualizacja po syncu"
+            git push
+          fi

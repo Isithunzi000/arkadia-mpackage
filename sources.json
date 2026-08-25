@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "mpackage": "ishtar_cal",
+      "source_repo": "Isithunzi000/arkadia-mudlet-calendar_ishtar",
+      "asset": "ishtar_cal.mpackage",
+      "created": "2026-08-20T11:13:44+00:00"
+    },
+    {
+      "mpackage": "imperium_cal",
+      "source_repo": "Isithunzi000/arkadia-mudlet-calendar_imperium",
+      "asset": "imperium_cal.mpackage",
+      "created": "2026-08-20T11:13:48+00:00"
+    },
+    {
+      "mpackage": "pasek_kalendarz_arkadia",
+      "source_repo": "Isithunzi000/arkadia-mudlet-pasek_czas",
+      "asset": "pasek_kalendarz_arkadia.mpackage",
+      "created": "2026-08-20T11:03:17+00:00"
+    }
+  ]
+}
