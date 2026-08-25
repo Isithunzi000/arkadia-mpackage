@@ -1,1 +1,29 @@
-{}
+{
+  "imperium_cal": {
+    "publish": {
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/789",
+      "status": "published"
+    },
+    "source_version": "1.8.22m",
+    "variant_sha256": "34077c4579fc4e38c7af23c617f7c1d98f3c7e1f7b7fb6ec2a0fdd97b75b7be3",
+    "variant_tag": "imperium_cal-v1.8.22m"
+  },
+  "ishtar_cal": {
+    "publish": {
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/788",
+      "status": "published"
+    },
+    "source_version": "1.8.21m",
+    "variant_sha256": "23596af10920329682e2829c18794b39c30a8a11871d38ae1541e1c620e0a6ba",
+    "variant_tag": "ishtar_cal-v1.8.21m"
+  },
+  "pasek_kalendarz_arkadia": {
+    "publish": {
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/790",
+      "status": "published"
+    },
+    "source_version": "1.6.6",
+    "variant_sha256": "f93c7e68efede376f423c2fd9e5af64df8fca08d0f1a630c2d8f9baf621c8d65",
+    "variant_tag": "pasek_kalendarz_arkadia-v1.6.6"
+  }
+}
