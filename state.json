@@ -19,11 +19,11 @@
   },
   "pasek_kalendarz_arkadia": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/798",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/799",
       "status": "published"
     },
-    "source_version": "1.6.8",
-    "variant_sha256": "f0581fe9948cadfef316cda43ab917963c6e9c14012d3c5d62cb5817665026d3",
-    "variant_tag": "pasek_kalendarz_arkadia-v1.6.8"
+    "source_version": "1.6.11",
+    "variant_sha256": "713cf7f6636d8b49764d5c15d57d5702c34747c2c263b25de47b36cf17bd6c55",
+    "variant_tag": "pasek_kalendarz_arkadia-v1.6.11"
   }
 }
