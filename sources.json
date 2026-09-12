@@ -17,6 +17,12 @@
       "source_repo": "Isithunzi000/arkadia-mudlet-pasek_czas",
       "asset": "pasek_kalendarz_arkadia.mpackage",
       "created": "2026-08-20T11:03:17+00:00"
+    },
+    {
+      "mpackage": "truwer",
+      "source_repo": "Isithunzi000/arkadia-mudlet-truwer",
+      "asset": "truwer.mpackage",
+      "created": "2026-09-08T07:23:26+00:00"
     }
   ]
 }

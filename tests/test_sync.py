@@ -60,6 +60,16 @@ PACKAGES = [
         "fixture_asset": "pasek_kalendarz_arkadia.mpackage",
         "fixture_release": "release_pasek.json",
     },
+    {
+        "mpackage": "truwer",
+        "source_repo": "Isithunzi000/arkadia-mudlet-truwer",
+        "asset": "truwer.mpackage",
+        "created": "2026-09-08T07:23:26+00:00",
+        "version": "1.0.10m",
+        "xml": "truwer.xml",
+        "fixture_asset": "truwer.mpackage",
+        "fixture_release": "release_truwer.json",
+    },
 ]
 
 PUBLISH_OK = {
@@ -115,7 +125,7 @@ class FakeOps:
 
 
 def make_ops(publish_responses=None):
-    """FakeOps zaladowany fixture'ami wszystkich trzech zrodel."""
+    """FakeOps zaladowany fixture'ami wszystkich zrodel z PACKAGES."""
     ops = FakeOps(publish_responses)
     for pkg in PACKAGES:
         release = json.loads((FIXTURES / pkg["fixture_release"]).read_text(encoding="utf-8"))
@@ -174,7 +184,7 @@ class T1Sources(SyncTestBase):
         sources = sync.load_sources(REPO_ROOT / "sources.json")
         self.assertEqual(
             [s.mpackage for s in sources],
-            ["ishtar_cal", "imperium_cal", "pasek_kalendarz_arkadia"],
+            ["ishtar_cal", "imperium_cal", "pasek_kalendarz_arkadia", "truwer"],
         )
         for s in sources:
             self.assertTrue(s.source_repo.startswith("Isithunzi000/"))
@@ -294,10 +304,10 @@ class T3VariantBuild(unittest.TestCase):
 
 class T4Idempotency(SyncTestBase):
     def test_first_run_builds_and_publishes_all(self):
-        ops = make_ops(publish_queue(200, 200, 200))
+        ops = make_ops(publish_queue(200, 200, 200, 200))
         self.run_sync(ops)
-        self.assertEqual(len(ops.created_releases), 3)
-        self.assertEqual(len(ops.publish_calls), 3)
+        self.assertEqual(len(ops.created_releases), 4)
+        self.assertEqual(len(ops.publish_calls), 4)
         state = self.read_state()
         for pkg in PACKAGES:
             entry = state[pkg["mpackage"]]
@@ -309,7 +319,7 @@ class T4Idempotency(SyncTestBase):
             self.assertEqual(entry["variant_sha256"], expected_sha)
 
     def test_second_run_is_noop(self):
-        self.run_sync(make_ops(publish_queue(200, 200, 200)))
+        self.run_sync(make_ops(publish_queue(200, 200, 200, 200)))
         ops2 = make_ops()  # pusta kolejka: kazde publish wybuchnie w atrapie
         self.run_sync(ops2)
         self.assertEqual(ops2.created_releases, [])
@@ -317,14 +327,14 @@ class T4Idempotency(SyncTestBase):
         self.assertEqual(ops2.oidc_calls, [])
 
     def test_pending_retries_publish_only(self):
-        self.run_sync(make_ops(publish_queue(403, 403, 403)))
+        self.run_sync(make_ops(publish_queue(403, 403, 403, 403)))
         state = self.read_state()
         for pkg in PACKAGES:
             self.assertEqual(state[pkg["mpackage"]]["publish"]["status"], "pending")
-        ops2 = make_ops(publish_queue(200, 200, 200))
+        ops2 = make_ops(publish_queue(200, 200, 200, 200))
         self.run_sync(ops2)
         self.assertEqual(ops2.created_releases, [])  # warianty nie przebudowane
-        self.assertEqual(len(ops2.publish_calls), 3)
+        self.assertEqual(len(ops2.publish_calls), 4)
         state2 = self.read_state()
         for pkg in PACKAGES:
             self.assertEqual(state2[pkg["mpackage"]]["publish"]["status"], "published")
@@ -332,24 +342,25 @@ class T4Idempotency(SyncTestBase):
     def test_crash_resume_recognises_existing_variant(self):
         # Release wariantu powstal, ale state.json nie zostal zacommitowany:
         # sync ma uznac istniejacy asset za zbudowany i isc dalej.
-        ops = make_ops(publish_queue(200, 200, 200))
+        ops = make_ops(publish_queue(200, 200, 200, 200))
         for pkg in PACKAGES:
             tag = make_variant.variant_tag(pkg["mpackage"], pkg["version"])
             name = make_variant.variant_asset_name(pkg["mpackage"])
             ops.variant_releases[tag] = {name: variant_bytes(pkg)}
         self.run_sync(ops)
         self.assertEqual(ops.created_releases, [])
-        self.assertEqual(len(ops.publish_calls), 3)
+        self.assertEqual(len(ops.publish_calls), 4)
         self.assertEqual(self.read_state()["ishtar_cal"]["publish"]["status"], "published")
 
     def test_failed_publish_keeps_error(self):
-        ops = make_ops(publish_queue(409, 200, 200))
+        ops = make_ops(publish_queue(409, 200, 200, 200))
         self.run_sync(ops)
         state = self.read_state()
         self.assertEqual(state["ishtar_cal"]["publish"]["status"], "failed")
         self.assertIn("error", state["ishtar_cal"]["publish"])
         self.assertEqual(state["imperium_cal"]["publish"]["status"], "published")
         self.assertEqual(state["pasek_kalendarz_arkadia"]["publish"]["status"], "published")
+        self.assertEqual(state["truwer"]["publish"]["status"], "published")
 
     def test_only_package_filter(self):
         ops = make_ops(publish_queue(200))
@@ -359,7 +370,7 @@ class T4Idempotency(SyncTestBase):
         self.assertEqual(list(self.read_state().keys()), ["imperium_cal"])
 
     def test_state_file_sorted_with_trailing_newline(self):
-        self.run_sync(make_ops(publish_queue(200, 200, 200)))
+        self.run_sync(make_ops(publish_queue(200, 200, 200, 200)))
         raw = self.state_path.read_text(encoding="utf-8")
         self.assertTrue(raw.endswith("\n"))
         self.assertEqual(raw, sync.dump_state(json.loads(raw)))

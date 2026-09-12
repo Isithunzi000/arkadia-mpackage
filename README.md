@@ -1,6 +1,6 @@
 # arkadia-mpackage
 
-Publikacja pakietow Mudlet (kalendarze Arkadii) na
+Publikacja pakietow Mudlet (kalendarze Arkadii, pasek kalendarza, Truwer) na
 [packages.mudlet.org](https://packages.mudlet.org) metoda **trusted publishing**
 (OIDC z GitHub Actions, bez zadnych tokenow w repo).
 
