@@ -25,5 +25,14 @@
     "source_version": "1.6.14",
     "variant_sha256": "554a1cd571040fd98abf13099030f228669c0bcb49cbe4bc4071497cc0002087",
     "variant_tag": "pasek_kalendarz_arkadia-v1.6.14"
+  },
+  "truwer": {
+    "publish": {
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/855",
+      "status": "published"
+    },
+    "source_version": "1.0.10m",
+    "variant_sha256": "f81b334594759cdc7e1ea54c34d1bc3dc67f6103497970b262c44e7df83366b6",
+    "variant_tag": "truwer-v1.0.10m"
   }
 }
