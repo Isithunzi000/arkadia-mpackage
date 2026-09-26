@@ -37,11 +37,11 @@
   },
   "truwer": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/866",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/871",
       "status": "published"
     },
-    "source_version": "1.0.11",
-    "variant_sha256": "8420fb3a75ed99aea9de8e38c88852967bb85983f919a18ec1c7fed43c503e41",
-    "variant_tag": "truwer-v1.0.11"
+    "source_version": "1.0.12",
+    "variant_sha256": "fd1e37f6af32039b881dd5205d4e53523a23a33cb019cb51ffc2e8715c8c5370",
+    "variant_tag": "truwer-v1.0.12"
   }
 }
