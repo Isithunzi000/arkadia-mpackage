@@ -10,12 +10,12 @@
   },
   "ishtar_cal": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/864",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/870",
       "status": "published"
     },
-    "source_version": "1.8.23",
-    "variant_sha256": "ff89481bbfc4c68cbef7927aa0db8586274c25ea104cffaaf9cfc2be40229c85",
-    "variant_tag": "ishtar_cal-v1.8.23"
+    "source_version": "1.8.24",
+    "variant_sha256": "fa05085d4cc9cc55353adeabfb874a5a749eae2b08fcefa4314def2e3aa8e95c",
+    "variant_tag": "ishtar_cal-v1.8.24"
   },
   "pasek_kalendarz_arkadia": {
     "publish": {
