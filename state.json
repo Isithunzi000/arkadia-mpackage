@@ -28,12 +28,12 @@
   },
   "treningi": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/869",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/874",
       "status": "published"
     },
-    "source_version": "1.0.11",
-    "variant_sha256": "5e590471558b6ee1a1ebf44b4c56b060e2ba8ed03d4fc7ce296cbaf16cb2de3a",
-    "variant_tag": "treningi-v1.0.11"
+    "source_version": "1.0.12",
+    "variant_sha256": "fd380cbd2c5ecee4404e360ae9ace7234bafaaddfbf3effe8cc215f37455d846",
+    "variant_tag": "treningi-v1.0.12"
   },
   "truwer": {
     "publish": {
