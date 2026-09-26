@@ -1,12 +1,12 @@
 {
   "imperium_cal": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/865",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/872",
       "status": "published"
     },
-    "source_version": "1.8.24",
-    "variant_sha256": "1a7021d1b807a0746d772fb8b5b002094dfa65339c9f5c232d3051c53aeb6c50",
-    "variant_tag": "imperium_cal-v1.8.24"
+    "source_version": "1.8.25",
+    "variant_sha256": "52b64515256d137a7198075f8aff4a31630b77f1b1b8ffd42a2f604bd17a8e35",
+    "variant_tag": "imperium_cal-v1.8.25"
   },
   "ishtar_cal": {
     "publish": {
