@@ -26,6 +26,15 @@
     "variant_sha256": "554a1cd571040fd98abf13099030f228669c0bcb49cbe4bc4071497cc0002087",
     "variant_tag": "pasek_kalendarz_arkadia-v1.6.14"
   },
+  "treningi": {
+    "publish": {
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/869",
+      "status": "published"
+    },
+    "source_version": "1.0.11",
+    "variant_sha256": "5e590471558b6ee1a1ebf44b4c56b060e2ba8ed03d4fc7ce296cbaf16cb2de3a",
+    "variant_tag": "treningi-v1.0.11"
+  },
   "truwer": {
     "publish": {
       "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/866",
