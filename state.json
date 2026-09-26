@@ -19,12 +19,12 @@
   },
   "pasek_kalendarz_arkadia": {
     "publish": {
-      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/802",
+      "pr_url": "https://github.com/Mudlet/mudlet-package-repository/pull/873",
       "status": "published"
     },
-    "source_version": "1.6.14",
-    "variant_sha256": "554a1cd571040fd98abf13099030f228669c0bcb49cbe4bc4071497cc0002087",
-    "variant_tag": "pasek_kalendarz_arkadia-v1.6.14"
+    "source_version": "1.6.15",
+    "variant_sha256": "063cbf91e4a53c1c96bd6fac843043a932b09c5de39e37597a1087ba435ae3fb",
+    "variant_tag": "pasek_kalendarz_arkadia-v1.6.15"
   },
   "treningi": {
     "publish": {
