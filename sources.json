@@ -29,6 +29,12 @@
       "source_repo": "Isithunzi000/arkadia-mudlet-treningi",
       "asset": "treningi.mpackage",
       "created": "2026-09-24T05:18:55+00:00"
+    },
+    {
+      "mpackage": "arkadia_mudlet_arkszept",
+      "source_repo": "Isithunzi000/arkadia-mudlet-arkszept",
+      "asset": "arkadia_mudlet_arkszept.mpackage",
+      "created": "2026-10-06T19:27:24+00:00"
     }
   ]
 }
